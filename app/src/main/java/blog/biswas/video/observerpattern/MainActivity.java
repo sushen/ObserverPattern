@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvOctal;
     EditText edtValue;
     Button btnSubmit;
-    private Object Subject;
+    Subject subject;
+
 
 
     @Override
@@ -30,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
 
 
-        Subject = new Subject();
+        subject = new Subject();
+        subject.attach(new BinaryObserver(subject,tvBinary));
+        subject.attach(new HexaObserver(subject,tvHexa));
+        subject.attach(new OctalObserver(subject,tvOctal));
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
