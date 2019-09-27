@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvOctal;
     EditText edtValue;
     Button btnSubmit;
+    private Object Subject;
 
 
     @Override
@@ -28,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
         edtValue=findViewById(R.id.edtValue);
         btnSubmit = findViewById(R.id.btnSubmit);
 
+
+        Subject = new Subject();
+
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 tvBinary.setText("B : " + Integer.toBinaryString(Integer.valueOf(edtValue.getText().toString())));
                 tvHexa.setText("H : " + Integer.toHexString(Integer.valueOf(edtValue.getText().toString())));
                 tvOctal.setText("O : " + Integer.toOctalString(Integer.valueOf(edtValue.getText().toString())));
-
             }
         });
 
